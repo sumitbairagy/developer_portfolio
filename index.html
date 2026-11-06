@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developer Portfolio</title>
+    <meta name="description" content="Professional web developer portfolio showcasing web development, Flutter and Django projects.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/sumitbairagy/website-theme-toggle/theme.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+            color: #20252d;
+            font-family: Arial, sans-serif;
+        }
+
+        .container-custom {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-bg {
+            background:
+                radial-gradient(circle at 85% 15%, #e8efff 0, transparent 32%),
+                radial-gradient(circle at 5% 85%, #f1eaff 0, transparent 30%),
+                #ffffff;
+        }
+
+        .profile-card {
+            background: linear-gradient(145deg, #eef3ff, #f7f2ff);
+            border: 1px solid #e4e9f5;
+        }
+
+        .project-card {
+            transition: all .3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, .09);
+        }
+
+        .skill-item {
+            transition: .25s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-4px);
+            border-color: #93b4ff;
+            background: #f1f5ff;
+        }
+
+        .section-label {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            transition: color .2s;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            outline: none;
+            background: #fff;
+            transition: .2s;
+        }
+
+        .form-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, .1);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
+    <nav class="container-custom h-20 flex items-center justify-between">
+
+        <a href="#home" class="text-2xl font-extrabold tracking-tight">
+            Dev<span class="text-blue-600">Portfolio.</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#home" class="nav-link text-sm font-semibold">Home</a>
+            <a href="#about" class="nav-link text-sm font-semibold">About</a>
+            <a href="#skills" class="nav-link text-sm font-semibold">Skills</a>
+            <a href="#services" class="nav-link text-sm font-semibold">Services</a>
+            <a href="#projects" class="nav-link text-sm font-semibold">Projects</a>
+            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg text-sm font-semibold transition">Let's Talk</a>
+        </div>
+
+        <button id="menuBtn" class="md:hidden text-2xl p-2" aria-label="Open navigation" aria-expanded="false">
+            ☰
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 p-5">
+        <div class="flex flex-col gap-5">
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#skills" class="mobile-link">Skills</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#contact" class="mobile-link text-blue-600 font-bold">Contact Me</a>
+        </div>
+    </div>
+
+<button
+    id="themeToggle"
+    onclick="toggleTheme()"
+    class="fixed bottom-6 right-6 z-[100] bg-blue-600
+           text-white px-5 py-3 rounded-full shadow-lg">
+    🌙 Dark Mode
+</button>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero-bg min-h-[650px] flex items-center py-20">
+    <div class="container-custom grid md:grid-cols-2 gap-16 items-center">
+
+        <div class="reveal">
+            <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-7">
+                <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                Available for Freelance Projects
+            </div>
+
+            <p class="text-slate-500 font-semibold mb-3">HELLO, I'M A</p>
+
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+                Full Stack<br>
+                <span class="gradient-text">Web Developer.</span>
+            </h1>
+
+            <p class="text-slate-600 text-lg leading-8 max-w-lg mb-9">
+                I build modern, responsive and user-friendly websites
+                and applications. I turn ideas into digital experiences
+                through clean code and creative design.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-7 py-4 rounded-xl font-semibold transition">
+                    Explore My Work →
+                </a>
+
+                <a href="#contact" class="border border-slate-300 hover:border-blue-600 hover:text-blue-600 px-7 py-4 rounded-xl font-semibold transition">
+                    Contact Me
+                </a>
+            </div>
+
+            <div class="flex gap-8 mt-12">
+                <div>
+                    <h3 class="text-3xl font-extrabold">10+</h3>
+                    <p class="text-sm text-slate-500 mt-1">Projects</p>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-extrabold">5+</h3>
+                    <p class="text-sm text-slate-500 mt-1">Technologies</p>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-extrabold">100%</h3>
+                    <p class="text-sm text-slate-500 mt-1">Passion</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal flex justify-center">
+            <div class="profile-card rounded-3xl p-5 md:p-8 w-full max-w-md">
+                <div class="bg-white rounded-2xl p-5 shadow-sm">
+
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="w-3 h-3 bg-red-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-400 rounded-full"></span>
+                        <span class="text-xs text-slate-400 ml-auto">developer.js</span>
+                    </div>
+
+                    <div class="font-mono text-sm leading-8 overflow-hidden">
+                        <p><span class="text-purple-600">const</span> developer = {</p>
+                        <p class="pl-5">name: <span class="text-green-600">'Your Name'</span>,</p>
+                        <p class="pl-5">role: <span class="text-green-600">'Web Developer'</span>,</p>
+                        <p class="pl-5">skills: [</p>
+                        <p class="pl-10 text-blue-600">'HTML', 'CSS',</p>
+                        <p class="pl-10 text-blue-600">'JavaScript', 'jQuery',</p>
+                        <p class="pl-10 text-blue-600">'Tailwind', 'Django'</p>
+                        <p class="pl-5">],</p>
+                        <p class="pl-5">passion: <span class="text-green-600">'Building great things'</span></p>
+                        <p>};</p>
+                        <p class="mt-5 text-purple-600">// Ready to create something amazing!</p>
+                        <p class="text-green-600">developer.create();</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 mt-4">
+                    <div class="bg-white rounded-xl p-4 text-center">
+                        <p class="text-blue-600 text-2xl font-bold">Web</p>
+                        <p class="text-xs text-slate-500">Development</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-4 text-center">
+                        <p class="text-purple-600 text-2xl font-bold">App</p>
+                        <p class="text-xs text-slate-500">Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="py-24">
+    <div class="container-custom grid md:grid-cols-2 gap-16 items-center">
+
+        <div class="reveal">
+            <div class="bg-slate-50 rounded-3xl p-10 border border-slate-100">
+                <div class="text-7xl mb-5">👨‍💻</div>
+                <h3 class="text-2xl font-bold mb-3">Code. Create. Innovate.</h3>
+                <p class="text-slate-500 leading-7">
+                    Combining development skills with creative thinking
+                    to build useful digital products.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-2">
+                    <span class="bg-white border px-4 py-2 rounded-full text-sm">Clean Code</span>
+                    <span class="bg-white border px-4 py-2 rounded-full text-sm">Responsive Design</span>
+                    <span class="bg-white border px-4 py-2 rounded-full text-sm">Problem Solving</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <p class="section-label mb-4">About Me</p>
+            <h2 class="text-4xl font-extrabold leading-tight mb-6">
+                Building Digital Experiences That Matter.
+            </h2>
+
+            <p class="text-slate-600 leading-8 mb-5">
+                I'm a passionate full-stack developer focused on building
+                responsive websites and practical applications.
+                I enjoy transforming ideas into clean, functional
+                and user-friendly digital products.
+            </p>
+
+            <p class="text-slate-600 leading-8 mb-8">
+                My development experience includes frontend technologies,
+                backend development and mobile application development.
+                I believe in continuous learning and writing maintainable code.
+            </p>
+
+            <a href="#contact" class="inline-block text-blue-600 font-bold border-b-2 border-blue-600 pb-1">
+                Let's work together →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills" class="py-24 bg-slate-50">
+    <div class="container-custom">
+
+        <div class="text-center mb-14 reveal">
+            <p class="section-label mb-3">My Expertise</p>
+            <h2 class="text-4xl font-extrabold">Technical Skills</h2>
+            <p class="text-slate-500 mt-4">Technologies I use to bring ideas to life.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">🌐</div>
+                <h3 class="font-bold">HTML5</h3>
+                <p class="text-sm text-slate-500 mt-2">Web Structure</p>
+            </div>
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">🎨</div>
+                <h3 class="font-bold">CSS3</h3>
+                <p class="text-sm text-slate-500 mt-2">Web Styling</p>
+            </div>
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="font-bold">JavaScript</h3>
+                <p class="text-sm text-slate-500 mt-2">Interactivity</p>
+            </div>
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">💨</div>
+                <h3 class="font-bold">Tailwind CSS</h3>
+                <p class="text-sm text-slate-500 mt-2">UI Development</p>
+            </div>
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">🔗</div>
+                <h3 class="font-bold">jQuery</h3>
+                <p class="text-sm text-slate-500 mt-2">DOM Manipulation</p>
+            </div>
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">🐍</div>
+                <h3 class="font-bold">Python</h3>
+                <p class="text-sm text-slate-500 mt-2">Backend Logic</p>
+            </div>
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">🚀</div>
+                <h3 class="font-bold">Django</h3>
+                <p class="text-sm text-slate-500 mt-2">Web Backend</p>
+            </div>
+
+            <div class="skill-item reveal bg-white p-7 rounded-2xl border text-center">
+                <div class="text-4xl mb-4">📱</div>
+                <h3 class="font-bold">Flutter</h3>
+                <p class="text-sm text-slate-500 mt-2">Mobile Apps</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="py-24">
+    <div class="container-custom">
+
+        <div class="text-center mb-14 reveal">
+            <p class="section-label mb-3">What I Do</p>
+            <h2 class="text-4xl font-extrabold">My Services</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-7">
+
+            <div class="project-card reveal border border-slate-100 rounded-2xl p-8">
+                <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-3xl mb-6">💻</div>
+                <h3 class="text-xl font-bold mb-4">Web Development</h3>
+                <p class="text-slate-500 leading-7">
+                    Responsive, modern and professional websites
+                    built with clean HTML, CSS, JavaScript and Tailwind CSS.
+                </p>
+            </div>
+
+            <div class="project-card reveal border border-slate-100 rounded-2xl p-8">
+                <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center text-3xl mb-6">⚙️</div>
+                <h3 class="text-xl font-bold mb-4">Backend Development</h3>
+                <p class="text-slate-500 leading-7">
+                    Dynamic web applications, database integration,
+                    APIs and backend functionality using Python and Django.
+                </p>
+            </div>
+
+            <div class="project-card reveal border border-slate-100 rounded-2xl p-8">
+                <div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center text-3xl mb-6">📱</div>
+                <h3 class="text-xl font-bold mb-4">App Development</h3>
+                <p class="text-slate-500 leading-7">
+                    Cross-platform mobile applications with
+                    Flutter, modern UI and practical functionality.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section id="projects" class="py-24 bg-slate-50">
+    <div class="container-custom">
+
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-5 mb-14 reveal">
+            <div>
+                <p class="section-label mb-3">Portfolio</p>
+                <h2 class="text-4xl font-extrabold">Featured Projects</h2>
+                <p class="text-slate-500 mt-3">A selection of my recent development work.</p>
+            </div>
+            <a href="#contact" class="text-blue-600 font-semibold">Have a project? Let's talk →</a>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+            <!-- Project 1 -->
+            <div class="project-card reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                <div class="h-52 bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
+                    <div class="text-6xl">🌐</div>
+                </div>
+                <div class="p-7">
+                    <span class="text-xs font-bold text-blue-600">WEB DEVELOPMENT</span>
+                    <h3 class="text-xl font-bold mt-3 mb-3">Business Website</h3>
+                    <p class="text-slate-500 text-sm leading-6 mb-5">
+                        A modern responsive business website with
+                        an attractive interface and smooth interactions.
+                    </p>
+                    <div class="flex gap-2 flex-wrap mb-5">
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">HTML</span>
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">CSS</span>
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">jQuery</span>
+                    </div>
+                    <a href="#" class="project-link text-blue-600 font-semibold text-sm">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                <div class="h-52 bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center">
+                    <div class="text-6xl">📚</div>
+                </div>
+                <div class="p-7">
+                    <span class="text-xs font-bold text-purple-600">WEB APPLICATION</span>
+                    <h3 class="text-xl font-bold mt-3 mb-3">Online Learning Platform</h3>
+                    <p class="text-slate-500 text-sm leading-6 mb-5">
+                        An educational platform with learning content,
+                        user-friendly navigation and interactive features.
+                    </p>
+                    <div class="flex gap-2 flex-wrap mb-5">
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">Django</span>
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">Python</span>
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">Tailwind</span>
+                    </div>
+                    <a href="#" class="project-link text-blue-600 font-semibold text-sm">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card reveal bg-white rounded-2xl overflow-hidden border border-slate-100">
+                <div class="h-52 bg-gradient-to-br from-green-100 to-teal-200 flex items-center justify-center">
+                    <div class="text-6xl">📱</div>
+                </div>
+                <div class="p-7">
+                    <span class="text-xs font-bold text-green-600">MOBILE APPLICATION</span>
+                    <h3 class="text-xl font-bold mt-3 mb-3">Productivity App</h3>
+                    <p class="text-slate-500 text-sm leading-6 mb-5">
+                        A practical application designed to organize
+                        daily activities and improve productivity.
+                    </p>
+                    <div class="flex gap-2 flex-wrap mb-5">
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">Flutter</span>
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">Dart</span>
+                        <span class="text-xs bg-slate-100 px-3 py-2 rounded-full">SQLite</span>
+                    </div>
+                    <a href="#" class="project-link text-blue-600 font-semibold text-sm">View Project →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="py-24">
+    <div class="container-custom">
+
+        <div class="text-center mb-14 reveal">
+            <p class="section-label mb-3">Get In Touch</p>
+            <h2 class="text-4xl font-extrabold">Let's Work Together</h2>
+            <p class="text-slate-500 mt-4">Have an idea? Let's turn it into reality.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-14">
+
+            <div class="reveal">
+                <h3 class="text-2xl font-bold mb-5">Let's discuss your project.</h3>
+                <p class="text-slate-500 leading-8 mb-9">
+                    I'm interested in freelance opportunities and
+                    exciting development projects. Send me a message
+                    and let's discuss how I can help.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">✉️</div>
+                        <div>
+                            <p class="text-xs text-slate-400">Email</p>
+                            <p class="font-semibold">your@email.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">📍</div>
+                        <div>
+                            <p class="text-xs text-slate-400">Location</p>
+                            <p class="font-semibold">India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contactForm" class="reveal space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Your Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Subject</label>
+                    <input type="text" id="subject" class="form-input" placeholder="Project subject" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Message</label>
+                    <textarea id="message" rows="5" class="form-input resize-none" placeholder="Tell me about your project..." required></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-xl font-semibold transition">
+                    Send Message →
+                </button>
+
+                <p class="text-xs text-slate-400">
+                    This form opens your email application to send the message.
+                </p>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-slate-950 text-white py-10">
+    <div class="container-custom">
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <h3 class="text-2xl font-extrabold">
+                    Dev<span class="text-blue-400">Portfolio.</span>
+                </h3>
+                <p class="text-slate-400 text-sm mt-2">Building ideas into reality.</p>
+            </div>
+
+            <div class="flex gap-6 text-sm text-slate-300">
+                <a href="#home" class="hover:text-blue-400">Home</a>
+                <a href="#about" class="hover:text-blue-400">About</a>
+                <a href="#projects" class="hover:text-blue-400">Projects</a>
+                <a href="#contact" class="hover:text-blue-400">Contact</a>
+            </div>
+        </div>
+
+        <div class="border-t border-slate-800 mt-8 pt-7 text-center text-sm text-slate-500">
+            © <span id="year"></span> Your Name. All Rights Reserved.
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- ================= JQUERY ================= -->
+
+<script>
+$(document).ready(function () {
+
+    // Mobile menu
+    $("#menuBtn").on("click", function () {
+        $("#mobileMenu").slideToggle(250);
+
+        const expanded = $(this).attr("aria-expanded") === "true";
+        $(this).attr("aria-expanded", !expanded);
+        $(this).text(expanded ? "☰" : "✕");
+    });
+
+    // Close menu after clicking link
+    $(".mobile-link").on("click", function () {
+        $("#mobileMenu").slideUp(250);
+        $("#menuBtn").text("☰").attr("aria-expanded", "false");
+    });
+
+    // Scroll reveal animation
+    function revealElements() {
+        $(".reveal").each(function () {
+            const elementTop = $(this).offset().top;
+            const windowBottom = $(window).scrollTop() + $(window).height() - 50;
+
+            if (elementTop < windowBottom) {
+                $(this).addClass("active");
+            }
+        });
+    }
+
+    $(window).on("scroll", revealElements);
+    revealElements();
+
+    // Dynamic copyright year
+    $("#year").text(new Date().getFullYear());
+
+    // Contact form - opens email application
+    $("#contactForm").on("submit", function (e) {
+        e.preventDefault();
+
+        const name = $("#name").val().trim();
+        const email = $("#email").val().trim();
+        const subject = $("#subject").val().trim();
+        const message = $("#message").val().trim();
+
+        if (!name || !email || !subject || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const recipient = "your@email.com"; // Replace with your email
+
+        const body =
+            "Name: " + name + "\n" +
+            "Email: " + email + "\n\n" +
+            "Message:\n" + message;
+
+        const mailto =
+            "mailto:" + recipient +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+
+        window.location.href = mailto;
+    });
+
+    // Placeholder project links
+    $(".project-link").on("click", function (e) {
+        if ($(this).attr("href") === "#") {
+            e.preventDefault();
+            alert("Replace this link with your actual project URL.");
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
